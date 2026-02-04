@@ -1,0 +1,21 @@
+# 🔐 Variáveis sensíveis
+.env
+
+# 🐍 Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 📊 Dados locais
+trade_history.csv
+trades.log
+position.json
+
+# 🧪 Ambientes
+.venv/
+venv/
+
+# 💻 Sistema
+.DS_Store
+Thumbs.db
