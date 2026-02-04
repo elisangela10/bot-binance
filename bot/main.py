@@ -1,4 +1,6 @@
 import time
+import json
+from pathlib import Path
 from config import INTERVAL, TAKE_PROFIT, STOP_LOSS
 from trader import (
     get_data,
@@ -13,7 +15,26 @@ from strategy import buy_signal
 from trade_history import save_trade
 from logger import (log, log_status)
 
+
+
+
 log_status("🚀 Bot iniciado")
+
+
+
+
+
+CONTROL_FILE = Path("bot/bot_control.json")
+
+def bot_is_enabled():
+    if not CONTROL_FILE.exists():
+        return False
+
+    with open(CONTROL_FILE, "r") as f:
+        data = json.load(f)
+
+    return data.get("run", False)
+
 
 # =========================
 # Estado inicial
@@ -40,6 +61,10 @@ else:
 # Loop principal
 # =========================
 while True:
+    if not bot_is_enabled():
+        log_status("⏸️ Bot pausado pelo painel")
+        time.sleep(5)
+        continue
     try:
         df = get_data(INTERVAL)
         df = apply_indicators(df)
@@ -117,3 +142,4 @@ while True:
     except Exception as e:
         log_status("Erro:", e)
         time.sleep(60)
+

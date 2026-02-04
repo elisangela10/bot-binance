@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import json
 from pathlib import Path
 from streamlit_autorefresh import st_autorefresh
 
@@ -32,6 +33,24 @@ if STATUS_PATH.exists():
 else:
     st.info("Status do bot ainda não disponível.")
 
+CONTROL_FILE = Path(__file__).parent.parent / "bot" / "bot_control.json"
+st.subheader("🎛️ Controle do Bot")
+
+col1, col2 = st.columns(2)
+
+def set_bot_state(state: bool):
+    with open(CONTROL_FILE, "w") as f:
+        json.dump({"run": state}, f)
+
+with col1:
+    if st.button("▶️ Iniciar Bot"):
+        set_bot_state(True)
+        st.success("Bot iniciado")
+
+with col2:
+    if st.button("⏸️ Pausar Bot"):
+        set_bot_state(False)
+        st.warning("Bot pausado")
 
 
 CSV_PATH = Path(__file__).parent.parent / "bot" / "trade_history.csv"
