@@ -1,12 +1,14 @@
 import csv
 from datetime import datetime
 
+CSV_FILE = "bot/trade_history.csv"
+
 def save_trade(action, price, qty):
-    with open("trade_history.csv", "a", newline="") as f:
+    with open(CSV_FILE, "a", newline="") as f:
         writer = csv.writer(f)
         writer.writerow([
-            datetime.now(),
+            datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             action,
-            price,
-            qty
+            float(price),
+            float(qty)
         ])

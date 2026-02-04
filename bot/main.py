@@ -1,58 +1,119 @@
 import time
 from config import INTERVAL, TAKE_PROFIT, STOP_LOSS
-from trader import get_data, market_buy, market_sell
+from trader import (
+    get_data,
+    market_buy,
+    market_sell,
+    get_btc_qty,
+    get_last_buy_price,
+    get_usdt_balance
+)
 from indicators import apply_indicators
 from strategy import buy_signal
-from logger import log
-# from trader import has_open_position
+from trade_history import save_trade
+from logger import (log, log_status)
+
+log_status("🚀 Bot iniciado")
+
+# =========================
+# Estado inicial
+# =========================
+buy_price = 0.0
+qty = get_btc_qty()
+in_position = qty > 0
+
+if in_position:
+    buy_price, _ = get_last_buy_price()
+
+    if buy_price > 0:
+        log_status(
+            f"♻️ Recovery automático | "
+            f"Preço entrada: {buy_price} | Qty BTC: {qty}"
+        )
+    else:
+        log_status("⚠️ BTC detectado, mas não foi possível recuperar o preço de entrada")
+else:
+    log_status("✅ Nenhuma posição aberta")
 
 
-
-print("🚀 Bot iniciado")
-
-in_position = False
-buy_price = 0
-qty = 0
-#in_position = has_open_position()
-
-# if in_position:
-#     print("⚠️ Posição aberta detectada (BTC na carteira)")
-# else:
-#     print("✅ Nenhuma posição aberta")
-    
+# =========================
+# Loop principal
+# =========================
 while True:
-    
     try:
-        
         df = get_data(INTERVAL)
         df = apply_indicators(df)
-        price = df.iloc[-1].close # Preço atual
-        print(f"[{time.strftime('%H:%M:%S')}] Rodando | Preço BTC: {price}")
 
-        price = df.iloc[-1].close
+        price = float(df.iloc[-1].close)
+        log_status(f"[{time.strftime('%H:%M:%S')}] Rodando | Preço BTC: {price}")
 
-        if not in_position and buy_signal(df):
-            buy_price, qty = market_buy()
-            in_position = True
-            print(f"[{time.strftime('%H:%M:%S')}] 🟢 COMPRA | Preço: {buy_price} | Qty: {qty}")
-            log(f"COMPRA | Preço: {buy_price} | Qty: {qty}")
-
-
+        # =========================
+        # CASO 1 — JÁ ESTÁ EM POSIÇÃO → NUNCA COMPRA
+        # =========================
         if in_position:
-            if price >= buy_price * (1 + TAKE_PROFIT):
+            qty = get_btc_qty()  # sempre usa saldo real
+
+            # proteção Binance
+            if qty * price < 10:
+                log_status("⛔ Valor da posição abaixo do mínimo da Binance")
+                time.sleep(60)
+                continue
+
+            # TAKE PROFIT
+            if buy_price > 0 and price >= buy_price * (1 + TAKE_PROFIT):
                 market_sell(qty)
-                in_position = False
-                print(f"[{time.strftime('%H:%M:%S')}] ✅ TAKE PROFIT | Preço: {price}")
+
+                save_trade("SELL_TP", price, qty)
                 log(f"TAKE PROFIT | Preço: {price}")
 
-            elif price <= buy_price * (1 - STOP_LOSS):
-                market_sell(qty)
+                log_status(
+                    f"[{time.strftime('%H:%M:%S')}] ✅ TAKE PROFIT | "
+                    f"Preço: {price}"
+                )
+
+                buy_price = 0
                 in_position = False
-                print(f"[{time.strftime('%H:%M:%S')}] 🛑 STOP LOSS | Preço: {price}")
+
+            # STOP LOSS
+            elif buy_price > 0 and price <= buy_price * (1 - STOP_LOSS):
+                market_sell(qty)
+
+                save_trade("SELL_SL", price, qty)
                 log(f"STOP LOSS | Preço: {price}")
+
+                log_status(
+                    f"[{time.strftime('%H:%M:%S')}] 🛑 STOP LOSS | "
+                    f"Preço: {price}"
+                )
+
+                buy_price = 0
+                in_position = False
+
+        # =========================
+        # CASO 2 — NÃO ESTÁ EM POSIÇÃO → PODE COMPRAR
+        # =========================
+        else:
+            usdt = get_usdt_balance()
+
+            if usdt < 10:
+                log_status("⛔ Sem USDT suficiente para comprar")
+                time.sleep(60)
+                continue
+
+            if buy_signal(df):
+                buy_price, qty = market_buy()
+                in_position = True
+
+                save_trade("BUY", buy_price, qty)
+                log(f"COMPRA | Preço: {buy_price} | Qty: {qty}")
+
+                log_status(
+                    f"[{time.strftime('%H:%M:%S')}] 🟢 COMPRA | "
+                    f"Preço: {buy_price} | Qty: {qty}"
+                )
 
         time.sleep(60)
 
     except Exception as e:
-        print("Erro:", e)
+        log_status("Erro:", e)
         time.sleep(60)
