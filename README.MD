@@ -101,17 +101,28 @@ BINANCE_API_SECRET=SUASECRETAQUI
 ```
 git clone https://github.com/seu-usuario/bot-binance.git
 ```
+```
 cd bot-binance
 ```
 2️⃣ Crie um ambiente virtual
-
+```
 python -m venv .venv
+```
+```
 source .venv/bin/activate  # Linux/Mac
+```
+```
 .venv\Scripts\activate     # Windows
+```
+```
 python -m venv .venv
+```
+```
 source .venv/bin/activate  # Linux/Mac
+```
+```
 .venv\Scripts\activate     # Windows
-
+```
 3️⃣ Instale dependências
 pip install -r requirements.txt
 
