@@ -1,86 +1,3 @@
-# 🤖 Bot Binance – Trading Automatizado com Dashboard
-
-Bot de trading **Spot na Binance**, desenvolvido em **Python**, com:
-- Estratégia técnica automatizada
-- Controle de risco (TP / SL)
-- Recovery automático de posição
-- Dashboard em **Streamlit**
-- Controle do bot via Frontend
-- Logs e histórico de operações
-
-> ⚠️ **Aviso**: Este projeto é educacional. Trading envolve risco. Use com valores pequenos.
-
----
-
-## 📌 Funcionalidades
-
-### ✅ Backend (Bot)
-- Conexão com API da Binance (Spot)
-- Estratégia baseada em indicadores técnicos
-- Compra e venda automática
-- Take Profit e Stop Loss
-- Recovery automático do preço de entrada
-- Proteção contra mínimo da Binance
-- Logs de status em tempo real
-- Histórico estruturado de trades (CSV)
-
-### ✅ Frontend (Dashboard)
-- Painel de controle em Streamlit
-- Exibição de:
-  - Lucro / Prejuízo (PnL)
-  - Total comprado e vendido
-  - Número de trades
-  - Histórico completo
-  - Status atual do bot (console)
-- Botões para:
-  - Iniciar bot
-  - Pausar bot
-
----
-
-## 📁 Estrutura do Projeto
-# 🤖 Bot Binance – Trading Automatizado com Dashboard
-
-Bot de trading **Spot na Binance**, desenvolvido em **Python**, com:
-- Estratégia técnica automatizada
-- Controle de risco (TP / SL)
-- Recovery automático de posição
-- Dashboard em **Streamlit**
-- Controle do bot via Frontend
-- Logs e histórico de operações
-
-> ⚠️ **Aviso**: Este projeto é educacional. Trading envolve risco. Use com valores pequenos.
-
----
-
-## 📌 Funcionalidades
-
-### ✅ Backend (Bot)
-- Conexão com API da Binance (Spot)
-- Estratégia baseada em indicadores técnicos
-- Compra e venda automática
-- Take Profit e Stop Loss
-- Recovery automático do preço de entrada
-- Proteção contra mínimo da Binance
-- Logs de status em tempo real
-- Histórico estruturado de trades (CSV)
-
-### ✅ Frontend (Dashboard)
-- Painel de controle em Streamlit
-- Exibição de:
-  - Lucro / Prejuízo (PnL)
-  - Total comprado e vendido
-  - Número de trades
-  - Histórico completo
-  - Status atual do bot (console)
-- Botões para:
-  - Iniciar bot
-  - Pausar bot
-
----
-
-## 📁 Estrutura do Projeto
-
 
 # 🤖 Bot Binance – Trading Automatizado com Dashboard
 
@@ -124,90 +41,7 @@ Bot de trading **Spot na Binance**, desenvolvido em **Python**, com:
 
 ## 📁 Estrutura do Projeto
 
-# 🤖 Bot Binance – Trading Automatizado com Dashboard
-
-Bot de trading **Spot na Binance**, desenvolvido em **Python**, com:
-- Estratégia técnica automatizada
-- Controle de risco (TP / SL)
-- Recovery automático de posição
-- Dashboard em **Streamlit**
-- Controle do bot via Frontend
-- Logs e histórico de operações
-
-> ⚠️ **Aviso**: Este projeto é educacional. Trading envolve risco. Use com valores pequenos.
-
----
-
-## 📌 Funcionalidades
-
-### ✅ Backend (Bot)
-- Conexão com API da Binance (Spot)
-- Estratégia baseada em indicadores técnicos
-- Compra e venda automática
-- Take Profit e Stop Loss
-- Recovery automático do preço de entrada
-- Proteção contra mínimo da Binance
-- Logs de status em tempo real
-- Histórico estruturado de trades (CSV)
-
-### ✅ Frontend (Dashboard)
-- Painel de controle em Streamlit
-- Exibição de:
-  - Lucro / Prejuízo (PnL)
-  - Total comprado e vendido
-  - Número de trades
-  - Histórico completo
-  - Status atual do bot (console)
-- Botões para:
-  - Iniciar bot
-  - Pausar bot
-
----
-
-## 📁 Estrutura do Projeto
-
-# 🤖 Bot Binance – Trading Automatizado com Dashboard
-
-Bot de trading **Spot na Binance**, desenvolvido em **Python**, com:
-- Estratégia técnica automatizada
-- Controle de risco (TP / SL)
-- Recovery automático de posição
-- Dashboard em **Streamlit**
-- Controle do bot via Frontend
-- Logs e histórico de operações
-
-> ⚠️ **Aviso**: Este projeto é educacional. Trading envolve risco. Use com valores pequenos.
-
----
-
-## 📌 Funcionalidades
-
-### ✅ Backend (Bot)
-- Conexão com API da Binance (Spot)
-- Estratégia baseada em indicadores técnicos
-- Compra e venda automática
-- Take Profit e Stop Loss
-- Recovery automático do preço de entrada
-- Proteção contra mínimo da Binance
-- Logs de status em tempo real
-- Histórico estruturado de trades (CSV)
-
-### ✅ Frontend (Dashboard)
-- Painel de controle em Streamlit
-- Exibição de:
-  - Lucro / Prejuízo (PnL)
-  - Total comprado e vendido
-  - Número de trades
-  - Histórico completo
-  - Status atual do bot (console)
-- Botões para:
-  - Iniciar bot
-  - Pausar bot
-
----
-
-## 📁 Estrutura do Projeto
-
+```
 Bot-Binance/
 ├── bot/
 │ ├── main.py # Loop principal do bot
@@ -227,6 +61,7 @@ Bot-Binance/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
+```
 
 
 
