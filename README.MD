@@ -263,9 +263,6 @@ O autor não se responsabiliza por prejuízos.
 Projeto desenvolvido por **Elisangela Miranda dos Anjos** para desenvolvido como projeto educacional para aprendizado de:
 
 Python
-
 APIs
-
 Trading automatizado
-
 Arquitetura backend + frontend
