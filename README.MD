@@ -128,6 +128,7 @@ source .venv/bin/activate  # Linux/Mac
 pip install -r requirements.txt
 ```
 ---
+
 ▶️ Executando o Bot
 Na raiz do projeto:
 ```
@@ -135,8 +136,11 @@ python bot/main.py
 ```
 
 O bot:
+
 lê o arquivo bot_control.json
+
 só opera se "run": true
+
 ---
 
 🖥️ Executando o Dashboard
@@ -169,6 +173,7 @@ O bot lê esse arquivo continuamente e:
 ⏸️ pausa quando false
 
 ---
+
 📊 Cálculo de Lucro / Prejuízo (PnL)
 
 O PnL exibido no dashboard é realizado, baseado em trades fechados:
@@ -183,6 +188,7 @@ Trades abertos não entram no cálculo
 Taxas da Binance não são descontadas (PnL bruto)
 
 ---
+
 🧠 Estratégia Atual
 
 Timeframe configurável
@@ -198,6 +204,7 @@ Sem alavancagem
 Spot only
 
 ---
+
 🔒 Proteções Implementadas
 
 ❌ Compra sem USDT
@@ -213,6 +220,7 @@ Spot only
 ✅ Uso do saldo real da carteira
 
 ---
+
 📝 Logs e Monitoramento
 
 bot_status.log
