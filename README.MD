@@ -91,16 +91,18 @@ Crie um arquivo `.env` na raiz:
 ```env
 BINANCE_API_KEY=SUACHAVEAQUI
 BINANCE_API_SECRET=SUASECRETAQUI
-
+```
 ⚠️ Nunca suba esse arquivo para o GitHub.
 
 ---
 
 📦 Instalação
 1️⃣ Clone o repositório
+```
 git clone https://github.com/seu-usuario/bot-binance.git
+```
 cd bot-binance
-
+```
 2️⃣ Crie um ambiente virtual
 
 python -m venv .venv
