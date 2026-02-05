@@ -1,5 +1,5 @@
 
-# 🤖 Bot Binance – Trading Automatizado com Dashboard
+🤖 Bot Binance – Trading Automatizado com Dashboard
 
 Bot de trading **Spot na Binance**, desenvolvido em **Python**, com:
 - Estratégia técnica automatizada
@@ -13,9 +13,9 @@ Bot de trading **Spot na Binance**, desenvolvido em **Python**, com:
 
 ---
 
-## 📌 Funcionalidades
+ 📌 Funcionalidades
 
-### ✅ Backend (Bot)
+✅ Backend (Bot)
 - Conexão com API da Binance (Spot)
 - Estratégia baseada em indicadores técnicos
 - Compra e venda automática
@@ -25,7 +25,7 @@ Bot de trading **Spot na Binance**, desenvolvido em **Python**, com:
 - Logs de status em tempo real
 - Histórico estruturado de trades (CSV)
 
-### ✅ Frontend (Dashboard)
+✅ Frontend (Dashboard)
 - Painel de controle em Streamlit
 - Exibição de:
   - Lucro / Prejuízo (PnL)
@@ -39,7 +39,7 @@ Bot de trading **Spot na Binance**, desenvolvido em **Python**, com:
 
 ---
 
-## 📁 Estrutura do Projeto
+📁 Estrutura do Projeto
 
 ```
 Bot-Binance/
@@ -67,7 +67,7 @@ Bot-Binance/
 
 ---
 
-## 🔐 Configuração da API Binance
+🔐 Configuração da API Binance
 
 1. Acesse:
  Binance → Perfil → API Management 
@@ -84,7 +84,7 @@ Bot-Binance/
 
 ---
 
-## ⚙️ Variáveis de Ambiente (`.env`)
+⚙️ Variáveis de Ambiente (`.env`)
 
 Crie um arquivo `.env` na raiz:
 
@@ -248,7 +248,9 @@ Forçar venda pelo dashboard
 Multi-par
 
 Deploy em cloud (VPS / Docker)
+
 ---
+
 ⚠️ Aviso Legal
 
 Este projeto não é recomendação financeira.
