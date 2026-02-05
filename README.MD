@@ -244,7 +244,9 @@ Deploy em cloud (VPS / Docker)
 ⚠️ Aviso Legal
 
 Este projeto não é recomendação financeira.
+
 Use apenas valores que você pode perder.
+
 O autor não se responsabiliza por prejuízos.
 ---
 👨‍💻 Autor
