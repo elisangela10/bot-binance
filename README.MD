@@ -124,29 +124,27 @@ source .venv/bin/activate  # Linux/Mac
 .venv\Scripts\activate     # Windows
 ```
 3️⃣ Instale dependências
+```
 pip install -r requirements.txt
-
+```
 ---
 ▶️ Executando o Bot
-
 Na raiz do projeto:
-
+```
 python bot/main.py
-
+```
 
 O bot:
-
 lê o arquivo bot_control.json
-
 só opera se "run": true
 ---
 
 🖥️ Executando o Dashboard
+```
 streamlit run dashboard/app.py
-
+```
 
 Acesse:
-
 http://localhost:8501
 
 ---
@@ -160,9 +158,9 @@ bot/bot_control.json
 
 
 Exemplo:
-
+```
 { "run": true }
-
+```
 
 O bot lê esse arquivo continuamente e:
 
